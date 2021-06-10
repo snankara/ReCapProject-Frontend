@@ -1,0 +1,43 @@
+<div class="content" style="margin-top: 10px;">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h6 class="card-header">Mevcut Rengi Güncelle</h6>
+                <div class="card-body">
+                    <form [formGroup]="colorUpdateForm">
+                        <div class="mb-3">
+                            <label class="card-text mb-1" for="colorName"> Renk </label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="colorName" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-outline-primary" type="button" (click)="updateColor()">Güncelle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h6 class="card-header">Mevcut Renk Bilgisi</h6>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="card-text mb-1"> Renk ID </label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [value]="color?.colorId" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="card-text mb-1"> Renk </label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [value]="color?.colorName" disabled="disabled" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

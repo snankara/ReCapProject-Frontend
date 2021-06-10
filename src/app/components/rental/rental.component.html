@@ -1,0 +1,35 @@
+<div class="card" style="margin-top:10px;">
+    <div class="card-header">
+        <h5>{{carDetail[0]?.brandName}} | {{carDetail[0]?.carName}}</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Kiralama Bilgileri</h5>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="dailyPrice" class="col-form-label">Günlük Fiyat</label><br>
+                <label for="customer" class="col-form-label">Müşteri</label><br>
+                <label for="rentDate" class="col-form-label">Başlangıç Tarihi</label><br>
+                <label for="returnDate" class="col-form-label" style="margin-top:13px;">Bitiş Tarihi</label><br>
+                <label for="findeksScore" class="col-form-label" style="margin-top:3px;">Minimum Findeks Puanı</label>
+
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control mb-1" disabled="disabled" [value]="carDetail[0]?.dailyPrice | currency:'₺'">
+                <input type="text" class="form-control mb-1" disabled="disabled" [value]="customer?.firstName+ ' ' +customer?.lastName">
+
+                <input (change)="onChangeEvent($event)" min="{{getRentMinDate()}}" [(ngModel)]="rentDate " id="rent-date" type="date" class="form-control mb-1">
+
+                <input disabled={{!firstDateSelected}} min="{{getReturnMinDate()}}" max="{{getReturnMaxDate()}}" [(ngModel)]="returnDate" id="return-date" type="date" class="form-control mb-1 ">
+
+                <input type="text" class="form-control mb-1" disabled="disabled" [value]="carDetail[0]?.minFindeksScore">
+
+            </div>
+        </div>
+
+        <button (click)="checkFindeksScore()" class="btn btn-outline-primary" type="button" data-bs-toggle="collapse">
+            Ödemeye Geç
+        </button>
+
+    </div>
+</div>

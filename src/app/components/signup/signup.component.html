@@ -1,0 +1,70 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/ilya-yakover.jpg');">
+        <div class="filter"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                    <div class="card card-register">
+                        <h3 class="title">Kayıt Ol</h3>
+                        <form [formGroup]="registerForm" class="register-form">
+                            <div class="form-group">
+                                <label>Ad</label>
+                                <div class="input-group form-group-no-border input-radius" [ngClass]="{'input-group-focus':focus===true}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                      <i class="nc-icon nc-tag-content"></i>
+                                  </span>
+                                    </div>
+
+                                    <input type="text" class="form-control input-radius" placeholder="Ad" (focus)="focus=true" (blur)="focus=false" name="firstName" formControlName="firstName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Soyad</label>
+                                <div class="input-group form-group-no-border input-radius" [ngClass]="{'input-group-focus':focus===true}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                      <i class="nc-icon nc-tag-content"></i>
+                                  </span>
+                                    </div>
+
+                                    <input type="text" class="form-control input-radius" placeholder="Soyad" (focus)="focus=true" (blur)="focus=false" name="lastName" formControlName="lastName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <div class="input-group form-group-no-border input-radius" [ngClass]="{'input-group-focus':focus===true}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                      <i class="nc-icon nc-email-85"></i>
+                                  </span>
+                                    </div>
+
+                                    <input type="text" class="form-control input-radius" placeholder="Email" (focus)="focus=true" (blur)="focus=false" name="email" formControlName="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <div class="input-group form-group-no-border input-radius" [ngClass]="{'input-group-focus':focus1===true}">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                      <i class="nc-icon nc-key-25"></i>
+                                  </span>
+                                    </div>
+                                    <input type="password" class="form-control input-radius" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" name="password" formControlName="password" autocomplete="on">
+                                </div>
+                            </div>
+                            <button class="btn btn-warning btn-block btn-round" (click)="register()">Kayıt Ol</button>
+                        </form>
+                        <div class="forgot">
+                            <label for="login">Zaten bir hesabınız var mı ?<a routerLink="/signin" class="btn btn-link" style="color: white;">Oturum Açın</a></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer register-footer text-center">
+                <h6>&copy;{{test | date: 'yyyy'}} MOTION RENT A CAR</h6>
+            </div>
+        </div>
+    </div>
+</div>

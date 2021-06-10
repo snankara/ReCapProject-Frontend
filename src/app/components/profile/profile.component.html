@@ -1,0 +1,114 @@
+<!-- Modal -->
+<div class="modal fade" id="userSettingsModal" tabindex="-1" aria-labelledby="userSettingModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userSettingModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="owner">
+
+
+
+                <input #Image type="file" id="input" accept="image/*" (change)="handleFileInput($event.target.files)" hidden>
+                <div class="avatar">
+                    <img [src]="imageSrc" class="img-circle img-no-padding img-responsive" style="height: 100%; width: 100%; object-fit: cover;">
+                </div><br>
+                <label for="input">
+                    <a *ngIf="!userImage?.imagePath && !fileToUpload" class="btn btn-link btn-primary btn-sm">Fotoğraf Ekle</a>
+                    <a *ngIf="userImage?.imagePath && !fileToUpload" class="btn btn-link btn-primary btn-sm">Fotoğraf Güncelle</a>
+                </label> 
+                <!-- <button *ngIf="fileToUpload && !userImage?.imagePath" class="btn btn-outline-primary btn-round btn-sm" (click)="upload(Image)">Kaydet</button>
+                <button *ngIf="fileToUpload && userImage?.imagePath" class="btn btn-outline-primary btn-round btn-sm" (click)="update(Image)">Güncelle</button> -->
+
+ 
+
+                <div class="name">
+                    <h4 class="title">{{customer.firstName}} {{customer.lastName}}<br /></h4>
+                    <h6 class="description">{{customer.companyName}}</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                    <!-- <p *ngIf="!customer.companyName" class="text-warning">Şirket bilgilerinize ulaşamadık. <br> Varsa çalıştığınız şirketi 'Ayarlar' butonundan bize söyleyin, doğrulamanın ardından size özel fırsatlar sunalım.</p> -->
+                    <br />
+                    <button type="button" class="btn btn-outline-default btn-round" data-toggle="modal" data-target="#userSettingsModal"><i class="fa fa-cog"></i> Ayarlar</button>
+
+
+                    <!-- Button trigger modal -->
+
+                </div>
+            </div>
+            <br/>
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <ngb-tabset [justify]="'center'">
+                        <ngb-tab title="Kiralamalarım">
+                            <ng-template ngbTabContent>
+                                <p *ngIf="!rentals" class="text-dark" style="line-height: 2;">Sistemimizde kayıtlı bir kiralama işlemi bulamadık. Bir sorun olduğunu düşünüyorsanız lütfen
+                                    <a href="mailto:snan_kara_@hotmail.com" class="btn-link" style="margin:0; padding: 0;">bize bildirin.</a><br> Bir sorun olmadığından eminseniz,
+                                    <a href="#/home#filo " class="btn-link" style="padding: 0; margin: 0; "> araç filomuza </a>hemen göz atın.
+                                </p>
+                                <div class="row following" id="follows" *ngIf="rentals">
+                                    <div class="col-md-6 ml-auto mr-auto">
+                                        <ul class="list-unstyled follows">
+                                            <li *ngFor="let rental of rentals">
+                                                <div class="row">
+                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+                                                        <img src="{{apiUrl}}/{{rental.imagePath[0]}}" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                    </div>
+                                                    <div class="col-md-7 col-sm-4 ml-auto">
+                                                        <h6>{{rental.carName}}<br/><small>{{rental.rentDate | date}} - {{rental.returnDate | date}}</small></h6>
+                                                    </div>
+
+                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto">
+                                                        <div class="form-check">
+                                                            <a href="#0" class="btn btn-link btn-outline-default">Tekrar Kirala</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <hr />
+                                        </ul>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="Kayıtlı Kredi Kartlarım">
+                            <ng-template ngbTabContent>
+                                <p *ngIf="!customer.cardId" class="text-dark" style="line-height: 2;">Kayıtlı kredi kartınızın olmadığını farkettik. <br> Kredi kartınızı kaydederseniz kiralama işlemlerinizi daha hızlı ve daha kolay gerçekleştirebilirsiniz.</p>
+                                <button *ngIf="!customer.cardId" class="btn btn-outline-warning btn-round btn-sm" style="margin-top: 10px;">Şİmdi Ekle</button>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="Size Özel Fırsatlar">
+                            <ng-template ngbTabContent>
+                                <h3 class="text-muted">Not following anyone yet :(</h3>
+                                <br>
+                                <button class="btn btn-warning btn-round">Find artists</button>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

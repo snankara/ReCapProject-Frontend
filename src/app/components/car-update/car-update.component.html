@@ -1,0 +1,106 @@
+<div class="content" style="margin-top: 10px;">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h6 class="card-header">Mevcut Arabayı Güncelle</h6>
+                <div class="card-body">
+                    <form [formGroup]="carUpdateForm">
+                        <div class="mb-3">
+                            <label class="card-text mb-1" for="carName"> Araba </label>
+                            <div class="form-group">
+                                <select class="form-select mb-1" aria-label="Default select example" formControlName="carId">
+                                    <option *ngFor="let car of carDetail" [ngValue]="car.carId">{{car.carName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="card-text mb-1" for="brandId"> Marka </label>
+                            <div class="form-group">
+                                <select class="form-select mb-1" aria-label="Default select example" formControlName="brandId">
+                                    <option *ngFor="let brand of brands" [ngValue]="brand.brandId">{{brand.brandName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="card-text mb-1" for="colorId"> Renk </label>
+                            <div class="form-group">
+                                <select class="form-select mb-1" aria-label="Default select example" formControlName="colorId">
+                                    <option *ngFor="let color of colors" [ngValue]="color.colorId">{{color.colorName}}</option> 
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="card-text mb-1" for="modelYear">Model</label>
+                            <div class="form-group">
+                                <input type="text" id="modelYear" formControlName="modelYear" class="form-control" placeholder="Model Yılı" />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="card-text mb-1" for="dailyPrice"> Günlük Fiyat</label>
+                            <div class="form-group">
+                                <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Günlük Fiyat" />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="card-text mb-1" for="description"> Açıklama</label>
+                            <div class="form-group">
+                                <input type="text" id="description" formControlName="description" class="form-control" placeholder="Açıklama" />
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="card-footer">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-outline-primary" type="button" (click)="updateCar()">Güncelle</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h6 class="card-header">Mevcut Araba Bilgisi</h6>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="card-text mb-1"> Araba </label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [value]="carDetail[0]?.carName" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="card-text mb-1"> Marka </label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [value]="carDetail[0]?.brandName" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="card-text mb-1"> Renk </label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [value]="carDetail[0]?.colorName" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="card-text mb-1">Model</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [value]="carDetail[0]?.modelYear" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="card-text mb-1"> Günlük Fiyat</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [value]="carDetail[0]?.dailyPrice" disabled="disabled" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="card-text mb-1"> Açıklama</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [value]="carDetail[0]?.description" disabled="disabled" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<label>Marka</label>
+<select class="form-select" aria-label="" [(ngModel)]="currentBrandId">
+    <option *ngFor="let brand of brands" [value]="brand.brandId" selected="{{currentBrand(brand.brandId)}}">{{brand.brandName}}</option>
+</select>
+
+<label style="margin-top: 5px;">Renk</label>
+<select class="form-select" aria-label="Default select example" style="margin-top: 5px;" [(ngModel)]="currentColorId">
+    <option *ngFor="let color of colors" [value]="color.colorId" selected="{{currentColor(color.colorId)}}">{{color.colorName}}</option>
+</select>
+<button routerLink="filters/brandId/{{currentBrandId}}/colorId/{{currentColorId}}" type="button" class="btn btn-outline-primary btn-sm" style="margin-top: 8px;">Filtrele</button>
+<button routerLink="" type="button" class="btn btn-outline-primary btn-sm" style="margin-top: 8px; margin-left: 5px;">Temizle</button>

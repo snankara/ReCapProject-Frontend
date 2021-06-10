@@ -1,0 +1,73 @@
+<!-- <div class="row">
+    <div class="col-md-2">
+        <app-brand (brandId)="receiveBrandId($event)"></app-brand>
+        <app-color (colorId)="receiveColorId($event)"></app-color>
+    </div>
+    <div class="col-md-10">
+        <h4 style="margin-top:10px;">Araç Filomuz</h4>
+        <hr>
+
+        <div class="input-group">
+            <input type="text" [(ngModel)]="carFilterText" class="form-control" id="carFilterText" placeholder="Araba ismine göre ara..." aria-label="Car">
+            <input type="text" [(ngModel)]="brandFilterText" class="form-control" id="brandFilter" placeholder="Markaya göre ara..." aria-label="Brand" style="margin-left:5px;">
+            <input type="text" [(ngModel)]="colorFilterText" class="form-control" id="colorFilter" placeholder="Renge göre ara..." aria-label="Color" style="margin-left:5px;">
+        </div>
+
+
+
+        <div class="card" style="width: 20rem; display: inline-block; margin: 10px;" *ngFor="let car of carDetail | carFilter:carFilterText | colorFilter:colorFilterText | brandFilter:brandFilterText">
+            <div class="card-img">
+                <img src="{{apiUrl}}/{{car.imagePath[0]}}" class="card-img-top" alt="..." width="320px" height="180px">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{car.brandName}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{car.carName}}</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><label class="text-muted">Renk:</label> {{car.colorName}}</li>
+                <li class="list-group-item"><label class="text-muted">Açıklama:</label> {{car.description}}</li>
+                <li class="list-group-item"><label class="text-muted">Fiyat:</label> {{car.dailyPrice}}₺</li>
+                <li class="list-group-item"><label class="text-muted">Model:</label> {{car.modelYear}}</li>
+            </ul>
+
+            <div class="card-body">
+                <td><button type="button" routerLink="cardetail/car/{{car.carId}}" class="btn btn-outline-primary " style="margin-top: 5px;">Detay</button></td>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+<div class="section section-gray text-center">
+    <div class="container">
+        <h1 class="title">Araç Filomuz</h1>
+        <div class="row">
+            <div class="col-md-4" *ngFor="let car of carDetail">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+
+                        <a href="#avatar"><img src="{{apiUrl}}/{{car.imagePath[0]}}" alt="..."></a>
+                    </div>
+                    <div class="card-block">
+                        <a href="#">
+                            <div class="author">
+                                <h4 class="card-title">{{car.brandName}} {{car.carName}}</h4>
+                                <h6 class="card-category">{{car.modelYear}}</h6>
+                            </div>
+                        </a>
+                        <p class="card-description text-center" style="padding: 10px;">
+                            Tüm {{car.brandName}} ailesinin dikkatlerini üzerine çeken, güvenliği ve konforu ile ön plana çıkan {{car.carName}} günlük {{car.dailyPrice}}₺ fiyatıyla şimdi sizlerle.
+
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button type="button" class="btn btn-info btn-just-icon" placement="right" ngbTooltip="Favroilere Ekle" style="float: left;"><i class="fa fa-heart"></i></button>
+
+                        <button type="button" class="btn btn-outline-info btn-round" style="float: right;"><i class="nc-icon nc-zoom-split"></i><span style="margin-left: 3px;">İncele</span></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

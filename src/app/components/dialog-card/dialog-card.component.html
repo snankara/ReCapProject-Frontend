@@ -1,0 +1,25 @@
+<!-- <div>
+    <h6><mark> Kartınızı Kaydetmek İster Misiniz?</mark></h6>
+    <mat-dialog-content>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button type="button" class="btn btn-success" (click)="save()">Evet</button>
+        <button type="button" class="btn btn-danger" style="margin-left: 5px;" (click)="close()">Hayır</button>
+    </mat-dialog-actions>
+</div> -->
+
+
+<div role="alert" class="toast fade show" data-bs-autohide="false" style="z-index: 99999; position: fixed; bottom: 0; right: 0; margin: 30px;">
+    <div class="toast-body">
+        <strong>Kartınızı Kaydetmek İster misiniz ?</strong><br>
+        <mat-dialog-content>
+            Kartınızı kaydetmek, sonraki kiralamalarınız için size kolaylık sağlayacaktır.
+        </mat-dialog-content><br>
+        <mat-dialog-actions>
+            <div class="mt-2 pt-2 mb-3">
+                <button type="button" class="btn btn-primary btn-sm" (click)="save()">Evet</button>
+                <button type="button" class="btn btn-secondary btn-sm" style="margin-left: 5px;" (click)="close()">Kapat</button>
+            </div>
+        </mat-dialog-actions>
+    </div>
+</div>

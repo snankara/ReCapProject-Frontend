@@ -1,0 +1,35 @@
+<div class="container" style="margin: 0; padding: 0; margin-top: 20px;">
+
+    <div class="card" style="width: 23rem; display: inline-block; border:none; margin-top: 10px; ">
+        <div class="card-body">
+            <h5 class="card-title">{{carDetail[0]?.brandName}}</h5>
+            <h6 class="card-title">{{carDetail[0]?.carName}}</h6>
+            <label class="card-text">Renk: {{carDetail[0]?.colorName}}</label><br><br>
+            <label class="card-text">Günlük Fiyat: {{carDetail[0]?.dailyPrice}}₺</label><br><br>
+            <label class="card-text">Açıklama: {{carDetail[0]?.description}}</label><br><br>
+            <label class="card-text">Minimum Findeks Puanı: {{carDetail[0]?.minFindeksScore}}</label><br><br>
+
+            <button routerLink="/rental/car/{{carDetail[0]?.carId}}" [ngClass]="getButtonClassName()" type="button" data-bs-toggle="collapse">
+                Kirala
+        </button> <br>
+            <span *ngIf="carDetail[0]?.status == false" class="badge bg-danger" style="margin-top:-50px">Oops! Bu Araç Henüz Teslim Edilmemiş Gibi Görünüyor...</span>
+        </div>
+    </div>
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" style="width: 450px; height: 350px; float: right;">
+        <div class="carousel-inner">
+            <div *ngFor="let imagePath of carDetail[0]?.imagePath let i=index" [ngClass]="getSliderClassName(i)">
+                <img src="{{apiUrl}}/{{imagePath}}" class="d-block img-responsive" alt="..." width="100%" height="100%" style="width: 450px; height: 350px; border-radius: 20%;">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span> 
+    <span class="visually-hidden">Previous</span>
+  </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span> 
+    <span class="visually-hidden">Next</span>
+  </button>
+    </div>
+
+</div>

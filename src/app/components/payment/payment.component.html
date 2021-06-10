@@ -1,0 +1,99 @@
+<div class="card" style="margin-top:10px;">
+    <div class="card-header">
+        İşlem Detayı
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Kiralama Bilgileri</h5>
+        <hr>
+        <table class="table mb-5">
+            <thead>
+                <tr>
+                    <th scope="col">Araba İsmi</th>
+                    <th scope="col">Kiralama Tarihi</th>
+                    <th scope="col">Teslim Tarihi</th>
+                    <th scope="col">Toplam Tutar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{rental.carName}}</td>
+                    <td>{{rental.rentDate}}</td>
+                    <td>{{rental.returnDate}}</td>
+                    <td>{{paymentAmount}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h5 class="card-title mb-1">Ödeme Bilgileri</h5>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Lütfen Kart Bilgilerinizi Giriniz</h5>
+                        <hr>
+                        <span>Kart Üzerindeki Ad Soyad</span>
+                        <input type="text" class="form-control mb-1" [(ngModel)]="nameOnTheCard" required="required" placeholder="Örn: Ahmet Şeker">
+                        <span>Kart Numarası</span>
+                        <input type="text" class="form-control mb-1" [(ngModel)]="cardNumber" required="required" placeholder="Örn: 0000-0000-0000-0000">
+                        <span>Son Kullanma Tarihi</span>
+                        <input type="text" class="form-control mb-1" [(ngModel)]="cardExpirationDate" required="required" placeholder="Örn: 11/22">
+                        <span>Güvenlik Numarası (CVV)</span>
+                        <input type="text" class="form-control mb-1" [(ngModel)]="cardCvv" required="required" placeholder="Örn: 123">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6" *ngIf="customer?.cardId != null">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Kayıtlı Kredi Kartınız</h5>
+                        <hr>
+                        <span>Kart Üzerindeki Ad Soyad</span>
+                        <input type="text" class="form-control mb-1" [value]="creditCard?.nameOnTheCard" disabled="disabled" required="required" placeholder="Örn: Ahmet Şeker">
+                        <span>Kart Numarası</span>
+                        <input type="text" class="form-control mb-1" [value]="creditCard?.cardNumber" disabled="disabled" required="required" placeholder="Örn: 0000-0000-0000-0000">
+                        <span>Son Kullanma Tarihi</span>
+                        <input type="text" class="form-control mb-1" [value]="creditCard?.cardExpirationDate" disabled="disabled" required="required" placeholder="Örn: 11/22">
+                        <span>Güvenlik Numarası (CVV)</span>
+                        <input type="text" class="form-control mb-1" [value]="creditCard?.cardCvv" disabled="disabled" required="required" placeholder="Örn: 123">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-md-3">
+            <span>Kart Üzerindeki Ad Soyad</span>
+            <input type="text" class="form-control mb-1" [(ngModel)]="nameOnTheCard" required="required" placeholder="Örn: Ahmet Şeker">
+            <span>Kart Numarası</span>
+            <input type="text" class="form-control mb-1" [(ngModel)]="cardNumber" required="required" placeholder="Örn: 0000-0000-0000-0000">
+            <span>Son Kullanma Tarihi</span>
+            <input type="text" class="form-control mb-1" [(ngModel)]="cardExpirationDate" required="required" placeholder="Örn: 11/22">
+            <span>Güvenlik Numarası (CVV)</span>
+            <input type="text" class="form-control mb-1" [(ngModel)]="cardCvv" required="required" placeholder="Örn: 123">
+        </div> 
+
+        <div class="card w-50 text-end" style="margin-left: 50px;">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
+            </div>
+        </div> -->
+
+        <!-- <div class="col-md-3" *ngIf="customer.cardId" style="display: inline-block; margin-left: 100px;">
+            <span>Kart Üzerindeki Ad Soyad</span>
+            <input type="text" class="form-control mb-1" [value]="creditCard?.nameOnTheCard" required="required" placeholder="Örn: Ahmet Şeker">
+            <span>Kart Numarası</span>
+            <input type="text" class="form-control mb-1" [value]="creditCard?.cardNumber" required="required" placeholder="Örn: 0000-0000-0000-0000">
+            <span>Son Kullanma Tarihi</span>
+            <input type="text" class="form-control mb-1" [value]="creditCard?.cardCvv" required="required" placeholder="Örn: 11/22">
+            <span>Güvenlik Numarası (CVV)</span>
+            <input type="text" class="form-control mb-1" [value]="creditCard?.cardExpirationDate" required="required" placeholder="Örn: 123">
+        </div> -->
+
+
+        <button (click)="rentIt()" class="btn btn-outline-primary" style="margin-top:5px;" type="button"> 
+            <strong> {{paymentAmount | currency : "₺"}} Ödemeyi Tamamla</strong>
+        </button>
+    </div>
+</div>

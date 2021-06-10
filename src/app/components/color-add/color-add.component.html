@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="card" style="margin-top: 10px;">
+                <h5 class="card-header">Renk Ekle</h5>
+                <div class="card-body">
+                    <form [formGroup]="colorAddForm">
+                        <div class="mb-3">
+                            <label class="card-text mb-1" for="colorName"> Renk </label>
+                            <div class="form-group">
+                                <input type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="Renk Adı" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-outline-primary" type="button" (click)="addColor()">Kaydet</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

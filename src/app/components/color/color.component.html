@@ -1,0 +1,15 @@
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <strong>Renkler</strong>
+        </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <ul class="list-group">
+                <li [ngClass]="{'active':selectedIndex == null, 'list-group-item':true}" (click)="selectedItem(); sendColorId()">Tüm Renkler</li>
+                <li [ngClass]="{'active':selectedIndex == i, 'list-group-item':true}" *ngFor="let color of colors let i=index" (click)="selectedItem(i); sendColorId(color.colorId)">{{color.colorName}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

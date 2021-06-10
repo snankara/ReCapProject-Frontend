@@ -20,7 +20,8 @@ This project is a car rental project created with [Angular CLI](https://github.c
 ## Images
 
 ### Homepage
-
+#### Homepage-1
+![Hierarchy](https://github.com/snankara/ReCapProject-Frontend/blob/master/src/assets/img/forGithubImages/Homepage1.JPG)
 ### Car List
 
 ### Register Page
